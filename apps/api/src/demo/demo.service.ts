@@ -12,7 +12,7 @@ export class DemoService {
   async create(createDemoDto: CreateDemoDto): Promise<CreateDemoResponse> {
     this.logger.log(`Creating demo request for: ${createDemoDto.email}`);
 
-    const demoRequest = await this.prisma.demo_requests.create({
+    const demoRequest = await this.prisma.demoRequest.create({
       data: {
         fullName: createDemoDto.fullName.trim(),
         email: createDemoDto.email.toLowerCase().trim(),
@@ -34,7 +34,7 @@ export class DemoService {
   }
 
   async findAll() {
-    return this.prisma.demo_requests.findMany({
+    return this.prisma.demoRequest.findMany({
       orderBy: {
         createdAt: 'desc',
       },
@@ -42,7 +42,7 @@ export class DemoService {
   }
 
   async findOne(id: string) {
-    return this.prisma.demo_requests.findUnique({
+    return this.prisma.demoRequest.findUnique({
       where: { id },
     });
   }
