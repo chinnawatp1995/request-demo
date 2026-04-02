@@ -8,7 +8,6 @@
   "scripts": {
     "web": "npm run dev --workspace=apps/web",
     "api": "npm run start:dev --workspace=apps/api",
-    "dev": "concurrently \"npm run api\" \"npm run web\"",
     "build": "npm run build --workspace=apps/api && npm run build --workspace=apps/web",
     "db:up": "docker-compose up -d",
     "db:down": "docker-compose down",
@@ -16,6 +15,5 @@
     "db:generate": "npm run prisma:generate --workspace=apps/api"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
   }
 }
